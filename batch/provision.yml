@@ -84,3 +84,10 @@
   sudo: True
   roles:
     - user
+  tasks:
+  - name: add LC_CTYPE to /home/hadoop/.bashrc
+    lineinfile:
+      dest: /home/hadoop/.bashrc
+      regexp: '^'
+      line: export LC_CTYPE='en_US.UTF-8'
+      state: present
